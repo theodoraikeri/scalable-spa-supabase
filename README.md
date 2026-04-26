@@ -1,16 +1,44 @@
-# React + Vite
+# Gems & Jewels Boutique (React + Supabase)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This is a scalable single-page application (SPA) built with React and Supabase. The app allows users to browse jewelry products, create accounts, and access role-based features.
 
-Currently, two official plugins are available:
+## Features
+- User authentication (Sign up, Login, Logout)
+- Dynamic product display from Supabase
+- Customer profile page
+- Admin dashboard with CRUD functionality
+  - Add products
+  - Edit products
+  - Delete products
+- Role-based access control (Admin vs User)
+- Deployed on Google Cloud Platform (Compute Engine)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+- React (Vite)
+- Supabase (Database + Auth)
+- Google Cloud Platform (Compute Engine)
+- Apache Web Server
 
-## React Compiler
+## Live Site
+http://34.133.34.247/jewelry-app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Database Tables
+### Products
+- id (uuid)
+- name (text)
+- description (text)
+- price (numeric)
+- category (text)
+- image_url (text)
+- stock_quantity (int)
 
-## Expanding the ESLint configuration
+### Profiles
+- id (uuid)
+- email (text)
+- role (text)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How to Run Locally
+```bash
+npm install
+npm run dev

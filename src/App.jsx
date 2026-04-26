@@ -63,8 +63,7 @@ function App() {
       console.error("Error fetching role:", error)
       setRole("user")
     } else {
-      console.log("ROLE:", data)
-      setRole(data.role)
+      setRole(data?.role || "user")
     }
   }
 
@@ -83,8 +82,9 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/jewelry-app">
       <div style={{ padding: "40px", background: "#f8f6f2", minHeight: "100vh" }}>
+        
         <nav
           style={{
             display: "flex",
@@ -116,23 +116,25 @@ function App() {
           </div>
         </nav>
 
-        <Routes>
-          <Route path="/" element={<Products products={products} />} />
-          <Route path="/profile" element={<Profile session={session} />} />
+        <main>
+          <Routes>
+            <Route path="/" element={<Products products={products} />} />
+            <Route path="/profile" element={<Profile session={session} />} />
 
-          <Route
-            path="/admin"
-            element={
-              role === "admin" ? (
-                <Admin products={products} />
-              ) : (
-                <Navigate to="/" replace />
-              )
-            }
-          />
+            <Route
+              path="/admin"
+              element={
+                role === "admin" ? (
+                  <Admin products={products} />
+                ) : (
+                  <Navigate to="/" replace />
+                )
+              }
+            />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
       </div>
     </BrowserRouter>
   )
